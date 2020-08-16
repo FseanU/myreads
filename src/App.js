@@ -1,31 +1,8 @@
 import React from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
+import SearchBar from './SearchBar'
 
-class SearchBar extends React.Component {
-  state = {
-    input: '',
-  }
-
-  handleChange = (e) => {
-    this.setState({
-      input: e.target.value
-    })
-  }
-
-  render() {
-    return (
-      <form>
-        <input 
-          type="text" 
-          placeholder="Search by title or author"
-          value={this.state.input}
-          onChange={this.handleChange}
-        />
-      </form>
-    )
-  }
-}
 
 class BooksApp extends React.Component {
   state = {
