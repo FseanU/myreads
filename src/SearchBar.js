@@ -8,14 +8,16 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <form>
-        <input 
-          type="text" 
-          placeholder="Search by title or author"
-          value={this.props.input}
-          onChange={this.handleChange}
-        />
-      </form>
+      <div className="search-book-bar">
+        <div className="search-books-input-wrapper">
+          <input 
+            type="text" 
+            placeholder="Search by title or author"
+            value={this.props.input}
+            onChange={this.handleChange}
+          />
+        </div>
+      </div>
     )
   }
 }
