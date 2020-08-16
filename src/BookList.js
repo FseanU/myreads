@@ -5,7 +5,7 @@ class BookList extends React.Component {
     return (
       <div>
         {console.log(this.props.books)}
-        {this.props.books.map(book=>( 
+        {(this.props.books.items && <p>No result</p>) || this.props.books.map(book=>( 
           <div key={book.id}>
             <p>{book.title}</p>
             {book.authors && book.authors.map(author=>(
