@@ -6,9 +6,8 @@ class BookList extends React.Component {
     return (
       <div className="search-books-results">
         <ol className="books-grid">
-          <li>
-            {(this.props.books.items && <p>No result</p>) || this.props.books.map(book=>( 
-              <div className="book" key={book.id}>
+            {(this.props.books.items && <li>No result</li>) || this.props.books.map(book=>( 
+              <li className="book" key={book.id}>
                 <div className="book-top">
                   <div 
                     className="book-cover"
@@ -20,9 +19,8 @@ class BookList extends React.Component {
                 {book.authors && book.authors.map(author=>(
                   <div className="book-authors">{author}</div>
                 ))}
-              </div>
+              </li>
             ))}
-          </li>
         </ol>
       </div>
       
