@@ -1,7 +1,7 @@
 import React from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
-import SearchBar from './SearchBar'
+import SearchPage from './SearchPage'
 
 
 class BooksApp extends React.Component {
@@ -31,7 +31,7 @@ class BooksApp extends React.Component {
                   However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
                   you don't find a specific author or title. Every search is limited by search terms.
                 */}
-                <SearchBar />
+                <SearchPage />
 
               </div>
             </div>
