@@ -24,10 +24,10 @@ class BookList extends React.Component {
                   </div>
                 </div>
                 <div className="book-title">{book.title}</div>
-                {book.authors && book.authors.map(author=>(
+                {book.authors && book.authors.map((author, index)=>(
                   <div 
                     className="book-authors"
-                    key={`${book.id}authors`}
+                    key={book.id + index}
                   >{author}</div>
                 ))}
               </div>
