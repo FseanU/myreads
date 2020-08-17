@@ -28,7 +28,9 @@ class SearchPage extends React.Component {
     return (
       <div className="search-books">
         <SearchBar input={this.state.input} onHandleChange={this.onHandleChange} handleBooks={this.handleBooks} />
-        <BookList books={this.state.books} />
+        <div className="search-books-results">
+          <BookList books={this.state.books} />
+        </div>
       </div>
       
     )
