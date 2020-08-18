@@ -1,5 +1,5 @@
 import React from 'react'
-// import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './BooksAPI'
 import './App.css'
 import SearchPage from './SearchPage'
 import HomePage from './HomePage'
@@ -13,28 +13,27 @@ class BooksApp extends React.Component {
      * users can use the browser's back and forward buttons to navigate between
      * pages, as well as provide a good URL they can bookmark and share.
      */
-    currReading: [
-      {
-        authors: ["Harold Bloom"],
-        id: "Jhw9Bg42pSMC",
-        imageLinks: {
-          thumbnail: "http://books.google.com/books/content?id=Jhw9Bg42pSMC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-        },
-        title: "Leo Tolstoy"
-      }
-    ],
-    wantToRead: [
-      {
-        authors: ["Ronald Victor Sampson"],
-        id: "f8sjAAAAMAAJ",
-        imageLinks: {
-          thumbnail: "http://books.google.com/books/content?id=f8sjAAAAMAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-        },
-        title: "Tolstoy: the discovery of peace"
-      }
-    ],
+    currentlyReading: [],
+    wantToRead: [],
     read: [],
-    showSearchPage: true
+    showSearchPage: false
+  }
+
+  componentDidMount() {
+    BooksAPI.getAll().then(books=>{
+      const currentlyReading = books.filter(book=> book.shelf === "currentlyReading")
+      const wantToRead = books.filter(book=> book.shelf === "wantToRead")
+      const read = books.filter(book=> book.shelf === "read")
+      this.setState({
+        currentlyReading,
+        wantToRead,
+        read,
+      })
+    })
+  }
+
+  updateBook = () => {
+    console.log("update succeed!")
   }
 
   render() {
@@ -47,9 +46,10 @@ class BooksApp extends React.Component {
           </div>
         ) : (
           <HomePage 
-            currReading={this.state.currReading}
+            currentlyReading={this.state.currentlyReading}
             wantToRead={this.state.wantToRead}
             read={this.state.read}
+            updateBook={this.updateBook}
           />
         )}
       </div>
