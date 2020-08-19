@@ -13,27 +13,42 @@ class BooksApp extends React.Component {
      * users can use the browser's back and forward buttons to navigate between
      * pages, as well as provide a good URL they can bookmark and share.
      */
-    currentlyReading: [],
-    wantToRead: [],
-    read: [],
+    // currentlyReading: [],
+    // wantToRead: [],
+    // read: [],
+    books: [],
     showSearchPage: false
   }
 
   componentDidMount() {
     BooksAPI.getAll().then(books=>{
-      const currentlyReading = books.filter(book=> book.shelf === "currentlyReading")
-      const wantToRead = books.filter(book=> book.shelf === "wantToRead")
-      const read = books.filter(book=> book.shelf === "read")
       this.setState({
-        currentlyReading,
-        wantToRead,
-        read,
+        books
       })
     })
   }
 
-  updateBook = () => {
+  updateBook = (book, shelf) => {
     console.log("update succeed!")
+    BooksAPI.update(book, shelf).then(bookIds=>{
+      const oldBooks = this.state.books;
+      console.log('oldBooks',oldBooks)
+      const oldBooksOneLess = oldBooks.filter(b => (b !== book) )
+      console.log('oldBooksOneLess', oldBooksOneLess)
+      const updatedBook = book;
+      updatedBook.shelf = shelf;
+      const newBooks = oldBooksOneLess.push(updatedBook);
+      console.log('newBooks',newBooks)
+      
+      // this.setState({
+      //   books: newBooks
+      // })
+      console.log(book.shelf)
+      // const updatedBook = BooksAPI.get(bookID)
+
+    }
+
+    )
   }
 
   render() {
@@ -46,9 +61,7 @@ class BooksApp extends React.Component {
           </div>
         ) : (
           <HomePage 
-            currentlyReading={this.state.currentlyReading}
-            wantToRead={this.state.wantToRead}
-            read={this.state.read}
+            books={this.state.books}
             updateBook={this.updateBook}
           />
         )}

@@ -3,6 +3,10 @@ import BookShelf from './BookShelf'
 
 class HomePage extends React.Component {
   render() {
+    const {updateBook, books} = this.props;
+    const currentlyReading = books.filter(book=> book.shelf === "currentlyReading");
+    const wantToRead = books.filter(book=> book.shelf === "wantToRead");
+    const read = books.filter(book=> book.shelf === "read");
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -12,17 +16,20 @@ class HomePage extends React.Component {
           <div>
             <BookShelf 
               shelfName={"Currently Reading"} 
-              shelf={this.props.currReading}
+              shelf={currentlyReading}
+              updateBook={updateBook}
             />
 
             <BookShelf 
               shelfName={"Want to Read"} 
-              shelf={this.props.wantToRead}
+              shelf={wantToRead}
+              updateBook={updateBook}
             />
             
             <BookShelf 
               shelfName={"Read"} 
-              shelf={this.props.read}
+              shelf={read}
+              updateBook={updateBook}
             />
           </div>
         </div>
