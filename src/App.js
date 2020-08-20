@@ -30,22 +30,24 @@ class BooksApp extends React.Component {
 
   updateBook = (book, shelf) => {
     console.log("update succeed!")
+    console.log(book)
     BooksAPI.update(book, shelf).then(bookIds=>{
       const oldBooks = this.state.books;
       console.log('oldBooks',oldBooks)
-      const oldBooksOneLess = oldBooks.filter(b => (b !== book) )
+      const oldBooksOneLess = oldBooks.filter(b => b !== book )
       console.log('oldBooksOneLess', oldBooksOneLess)
-      const updatedBook = book;
+      const updatedBook = {...book};
+      console.log(updatedBook)
       updatedBook.shelf = shelf;
-      const newBooks = oldBooksOneLess.push(updatedBook);
-      console.log('newBooks',newBooks)
+      const newBooks = [...oldBooksOneLess,updatedBook];
+      // console.log('oldBooksOneLess', oldBooksOneLess)
+      console.log('newBooks', newBooks)
       
-      // this.setState({
-      //   books: newBooks
-      // })
+      this.setState({
+        books: newBooks
+      })
       console.log(book.shelf)
-      // const updatedBook = BooksAPI.get(bookID)
-
+     
     }
 
     )
