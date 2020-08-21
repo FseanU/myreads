@@ -58,7 +58,10 @@ class BooksApp extends React.Component {
       <div className="app">
         {this.state.showSearchPage ? (
           <div>
-            <SearchPage />
+            <SearchPage 
+              booksInShelf={this.state.books}
+              updateBook={this.updateBook}
+            />
             <button className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</button>
           </div>
         ) : (

@@ -13,6 +13,7 @@ class BookList extends React.Component {
               key={book.id} 
               book={book}
               updateBook={this.props.updateBook}
+              booksInShelf ={this.props.booksInShelf}
             />
           ))}
       </ol>

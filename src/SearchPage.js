@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchBar from './SearchBar'
 import BookList from './BookList'
-import {search} from './BooksAPI'
+import {search, update} from './BooksAPI'
 
 class SearchPage extends React.Component {
   state = {
@@ -25,11 +25,20 @@ class SearchPage extends React.Component {
   }
 
   render() {
+    const {booksInShelf, updateBook} = this.props
     return (
       <div className="search-books">
-        <SearchBar input={this.state.input} onHandleChange={this.onHandleChange} handleBooks={this.handleBooks} />
+        <SearchBar 
+          input={this.state.input} 
+          onHandleChange={this.onHandleChange} 
+          handleBooks={this.handleBooks} 
+        />
         <div className="search-books-results">
-          <BookList books={this.state.books} />
+          <BookList 
+            books={this.state.books} 
+            updateBook={updateBook} 
+            booksInShelf={booksInShelf} 
+          />
         </div>
       </div>
       
