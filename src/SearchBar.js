@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 
 class SearchBar extends React.Component {
   handleChange = (event) => {
-    this.props.onHandleChange(event.target.value);
-    this.props.handleBooks(event.target.value)
+    const value = event.target.value;
+    this.props.onHandleChange(value);
+    this.props.handleBooks(value)
   }
 
   render() {

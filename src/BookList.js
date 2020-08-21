@@ -2,17 +2,16 @@ import React from 'react'
 import Book from './Book'
 
 class BookList extends React.Component {
-  
-
   render() { 
+    const { books, updateBook, booksInShelf } = this.props;
     return (
       <ol className="books-grid">
-          {(this.props.books.items && <li>No result</li>) || this.props.books.map(book=>( 
+          {(books.items && <li>No result</li>) || books.map(book=>( 
             <Book 
               key={book.id} 
               book={book}
-              updateBook={this.props.updateBook}
-              booksInShelf ={this.props.booksInShelf}
+              updateBook={updateBook}
+              booksInShelf ={booksInShelf}
             />
           ))}
       </ol>

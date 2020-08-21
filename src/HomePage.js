@@ -3,11 +3,15 @@ import BookShelf from './BookShelf'
 import { Link } from 'react-router-dom';
 
 class HomePage extends React.Component {
+  filterBookByShelf = (books, shelfName) => {
+    return books.filter(book=> book.shelf === shelfName);
+  }
+
   render() {
     const {updateBook, books} = this.props;
-    const currentlyReading = books.filter(book=> book.shelf === "currentlyReading");
-    const wantToRead = books.filter(book=> book.shelf === "wantToRead");
-    const read = books.filter(book=> book.shelf === "read");
+    const currentlyReading = this.filterBookByShelf(books, 'currentlyReading')
+    const wantToRead = this.filterBookByShelf(books, 'wantToRead')
+    const read = this.filterBookByShelf(books, 'read')
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -34,9 +38,6 @@ class HomePage extends React.Component {
             />
           </div>
         </div>
-        {/* <div className="open-search">
-          <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
-        </div> */}
         <div className="open-search">
           <Link to="/search">Add a book</Link>
         </div>

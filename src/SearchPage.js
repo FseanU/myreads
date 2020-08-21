@@ -16,12 +16,6 @@ class SearchPage extends React.Component {
   }
 
   handleBooks = (query) => {
-    // query && search(query)
-    // .then(books=>{
-    //   this.setState({
-    //     books,
-    //   })
-    // })
     if (query) {
       search(query)
       .then(books=>{
@@ -52,8 +46,7 @@ class SearchPage extends React.Component {
             booksInShelf={booksInShelf} 
           />
         </div>
-      </div>
-      
+      </div>  
     )
   }
 }

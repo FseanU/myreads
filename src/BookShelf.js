@@ -3,13 +3,14 @@ import BookList from './BookList'
 
 class BookShelf extends React.Component {
   render() {
+    const { shelf, shelfName, updateBook } = this.props;
     return(
       <div className="bookshelf">
-        <h2 className="bookshelf-title">{this.props.shelfName}</h2>
+        <h2 className="bookshelf-title">{shelfName}</h2>
         <div className="bookshelf-books">
           <BookList 
-            books={this.props.shelf} 
-            updateBook={this.props.updateBook}
+            books={shelf} 
+            updateBook={updateBook}
           />
         </div>
       </div>
