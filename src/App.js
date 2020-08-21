@@ -17,7 +17,7 @@ class BooksApp extends React.Component {
     // wantToRead: [],
     // read: [],
     books: [],
-    showSearchPage: false
+    showSearchPage: true
   }
 
   componentDidMount() {

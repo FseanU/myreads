@@ -16,12 +16,24 @@ class SearchPage extends React.Component {
   }
 
   handleBooks = (query) => {
-    query && search(query)
-    .then(books=>{
-      this.setState({
-        books,
+    // query && search(query)
+    // .then(books=>{
+    //   this.setState({
+    //     books,
+    //   })
+    // })
+    if (query) {
+      search(query)
+      .then(books=>{
+        this.setState({
+          books,
+        });
       })
-    })
+    } else {
+      this.setState({
+        books:[]
+      });
+    }
   }
 
   render() {
