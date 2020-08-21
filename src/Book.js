@@ -1,6 +1,15 @@
 import React from 'react'
 
 class Book extends React.Component {
+  state={
+    value: this.props.book.shelf
+  }
+
+  onUpdateBook = (e, book) => {
+    const shelf = e.target.value;
+    this.props.updateBook(book, shelf)
+  }
+
   render() {
     const {book} = this.props
     return(
@@ -15,9 +24,10 @@ class Book extends React.Component {
 
             <select 
               onChange={(e) => {
-                this.onUpdateBook(e, book)
-                console.log(e)
-              }}>
+                this.onUpdateBook(e, book)         
+              }}
+              value={this.state.value}
+            >
               <option value="move" disabled>Move to...</option>
               <option value="currentlyReading">Currently Reading</option>
               <option value="wantToRead">Want to Read</option>

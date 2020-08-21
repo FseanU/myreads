@@ -2,17 +2,18 @@ import React from 'react'
 import Book from './Book'
 
 class BookList extends React.Component {
-  onUpdateBook = (e, book) => {
-    const shelf = e.target.value;
-    this.props.updateBook(book, shelf)
-  }
+  
 
   render() { 
     console.log(this.props.books)
     return (
       <ol className="books-grid">
           {(this.props.books.items && <li>No result</li>) || this.props.books.map(book=>( 
-            <Book key={book.id} book={book}/>
+            <Book 
+              key={book.id} 
+              book={book}
+              updateBook={this.props.updateBook}
+            />
           ))}
       </ol>
     )
