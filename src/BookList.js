@@ -5,7 +5,6 @@ class BookList extends React.Component {
   
 
   render() { 
-    console.log(this.props.books)
     return (
       <ol className="books-grid">
           {(this.props.books.items && <li>No result</li>) || this.props.books.map(book=>( 
