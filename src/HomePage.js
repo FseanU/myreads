@@ -9,9 +9,11 @@ class HomePage extends React.Component {
 
   render() {
     const {updateBook, books} = this.props;
-    const currentlyReading = this.filterBookByShelf(books, 'currentlyReading')
-    const wantToRead = this.filterBookByShelf(books, 'wantToRead')
-    const read = this.filterBookByShelf(books, 'read')
+    const shelves = {
+      currentlyReading: ['Currently Reading', 'currentlyReading'],
+      wantToRead: ['Want to Read', 'wantToRead'],
+      read: ['Read', 'read']
+    }
     return (
       <div className="list-books">
         <div className="list-books-title">
@@ -19,23 +21,14 @@ class HomePage extends React.Component {
         </div>
         <div className="list-books-content">
           <div>
-            <BookShelf 
-              shelfName={"Currently Reading"} 
-              shelf={currentlyReading}
-              updateBook={updateBook}
-            />
-
-            <BookShelf 
-              shelfName={"Want to Read"} 
-              shelf={wantToRead}
-              updateBook={updateBook}
-            />
-            
-            <BookShelf 
-              shelfName={"Read"} 
-              shelf={read}
-              updateBook={updateBook}
-            />
+            {Object.entries(shelves).map(([key, value]) => (
+              <BookShelf 
+                key={key}
+                shelfInfo={value}
+                allBooks={books}
+                updateBook={updateBook}
+              />
+            ))}
           </div>
         </div>
         <div className="open-search">
