@@ -9,6 +9,8 @@ This simple booklist app lets users search books and add to their bookshelves. T
 ![MyReads screenshot - Homepage](./myreads-screenshot-01.jpg)
 Homepage
 
+<br>
+<br>
 ![MyReads screenshot - Search page](./myreads-screenshot-02.jpg)
 Search page
 
