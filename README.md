@@ -6,7 +6,8 @@ Booklist app created with React.js
 
 This simple booklist app lets users search books and add to their bookshelves. There are three bookshelves which are Currently Reading, Want to Read, and Read. Books can be moved easily to different bookshelves according to users' needs.
 
-![MyReads screenshot](./myreads-screenshot.jpg)
+![MyReads screenshot - Homepage](./myreads-screenshot-01.jpg)
+![MyReads screenshot - Search page](./myreads-screenshot-02.jpg)
 
 ## Setup
 
