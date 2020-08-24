@@ -1,6 +1,8 @@
 # MyReads
 
 MyReads is a booklist app created with React.js
+<br>
+<br>
 
 ## General info
 
@@ -14,6 +16,8 @@ Homepage
 
 ![MyReads screenshot - Search page](./myreads-screenshot-02.jpg)
 Search page
+<br>
+<br>
 
 ## Setup
 
