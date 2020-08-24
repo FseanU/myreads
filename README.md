@@ -1,13 +1,16 @@
 # MyReads
 
-Booklist app created with React.js
+MyReads is a booklist app created with React.js
 
 ## General info
 
 This simple booklist app lets users search books and add to their bookshelves. There are three bookshelves which are Currently Reading, Want to Read, and Read. Books can be moved easily to different bookshelves according to users' needs.
 
 ![MyReads screenshot - Homepage](./myreads-screenshot-01.jpg)
+Homepage
+
 ![MyReads screenshot - Search page](./myreads-screenshot-02.jpg)
+Search page
 
 ## Setup
 
